@@ -5,8 +5,10 @@ import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Progress } from "@/components/ui/progress"
 import { Badge } from "@/components/ui/badge"
-import { Upload, FileImage, Brain, Activity, Clock, CheckCircle } from "lucide-react"
+import { Alert, AlertDescription } from "@/components/ui/alert"
+import { Upload, FileImage, Brain, Activity, Clock, CheckCircle, AlertTriangle, Loader2 } from "lucide-react"
 import { useDropzone } from "react-dropzone"
+import { modelClient } from "@/lib/model-client"
 
 // Mock prediction data structure from PRD
 const mockPredictionResult = {
@@ -68,9 +70,9 @@ export function UploadDashboard() {
   const processImage = async () => {
     if (!uploadState.file) return
 
-    setUploadState((prev) => ({ ...prev, isProcessing: true, progress: 0 }))
+    setUploadState((prev) => ({ ...prev, isProcessing: true, progress: 0, error: null }))
 
-    // Simulate processing with progress updates
+    // Simulate progress updates
     const progressInterval = setInterval(() => {
       setUploadState((prev) => {
         if (prev.progress >= 90) {
@@ -81,16 +83,28 @@ export function UploadDashboard() {
       })
     }, 200)
 
-    // Simulate API call delay
-    setTimeout(() => {
+    try {
+      // Use real API call
+      const result = await modelClient.predict(uploadState.file)
+
       clearInterval(progressInterval)
       setUploadState((prev) => ({
         ...prev,
         isProcessing: false,
         progress: 100,
-        result: mockPredictionResult,
+        result,
+        error: null,
       }))
-    }, 2500)
+    } catch (error) {
+      clearInterval(progressInterval)
+      const errorMessage = error instanceof Error ? error.message : "An unexpected error occurred"
+      setUploadState((prev) => ({
+        ...prev,
+        isProcessing: false,
+        progress: 0,
+        error: errorMessage,
+      }))
+    }
   }
 
   const resetUpload = () => {
@@ -169,8 +183,22 @@ export function UploadDashboard() {
                   </div>
                 )}
 
+                {uploadState.error && (
+                  <Alert variant="destructive">
+                    <AlertTriangle className="h-4 w-4" />
+                    <AlertDescription>{uploadState.error}</AlertDescription>
+                  </Alert>
+                )}
+
                 <Button onClick={processImage} disabled={uploadState.isProcessing} className="w-full accent-glow">
-                  {uploadState.isProcessing ? "Analyzing..." : "Analyze MRI Scan"}
+                  {uploadState.isProcessing ? (
+                    <>
+                      <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                      Analyzing...
+                    </>
+                  ) : (
+                    "Analyze MRI Scan"
+                  )}
                 </Button>
               </div>
             )}
@@ -183,7 +211,17 @@ export function UploadDashboard() {
               Classification Results
             </h3>
 
-            {!uploadState.result ? (
+            {uploadState.isProcessing ? (
+              <div className="flex items-center justify-center h-64 text-center">
+                <div className="space-y-4">
+                  <Brain className="w-16 h-16 text-primary mx-auto animate-pulse" />
+                  <div>
+                    <p className="text-foreground font-medium mb-2">Analyzing MRI Scan...</p>
+                    <p className="text-sm text-muted-foreground">Our AI model is processing your image</p>
+                  </div>
+                </div>
+              </div>
+            ) : !uploadState.result ? (
               <div className="flex items-center justify-center h-64 text-center">
                 <div>
                   <Activity className="w-12 h-12 text-muted-foreground mx-auto mb-4" />

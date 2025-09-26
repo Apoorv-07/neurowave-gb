@@ -23,7 +23,7 @@ class ModelClient {
   private baseUrl: string
   private timeout: number
 
-  constructor(baseUrl = "http://localhost:8001", timeout = 30000) {
+  constructor(baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8001", timeout = 30000) {
     this.baseUrl = baseUrl
     this.timeout = timeout
   }
