@@ -19,6 +19,34 @@ interface ModelInfo {
   status: string
 }
 
+export class TimeoutError extends Error {
+  constructor(message: string) {
+    super(message)
+    this.name = "TimeoutError"
+  }
+}
+
+export class ServerError extends Error {
+  constructor(message: string) {
+    super(message)
+    this.name = "ServerError"
+  }
+}
+
+export class ValidationError extends Error {
+  constructor(message: string) {
+    super(message)
+    this.name = "ValidationError"
+  }
+}
+
+export class NetworkError extends Error {
+  constructor(message: string) {
+    super(message)
+    this.name = "NetworkError"
+  }
+}
+
 class ModelClient {
   private baseUrl: string
   private timeout: number
@@ -43,7 +71,7 @@ class ModelClient {
         method: "POST",
         body: await imageFile.arrayBuffer(),
         headers: {
-          "Content-Type": "application/octet-stream",
+          "Content-Type": imageFile.type,
         },
         signal: controller.signal,
       })
@@ -52,24 +80,43 @@ class ModelClient {
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}))
-        throw new Error(errorData.error || `HTTP ${response.status}: ${response.statusText}`)
+
+        if (response.status >= 500) {
+          throw new ServerError(
+            errorData.error || "An unexpected error occurred on the backend. The team has been notified.",
+          )
+        } else if (response.status === 422) {
+          throw new ValidationError(errorData.error || "The uploaded file format is not supported or corrupted.")
+        } else {
+          throw new Error(errorData.error || `HTTP ${response.status}: ${response.statusText}`)
+        }
       }
 
       const data = await response.json()
 
       if (!data.success) {
-        throw new Error(data.error || "Prediction failed")
+        throw new ValidationError(data.error || "Prediction failed")
       }
 
       return data.result
     } catch (error) {
       if (error instanceof Error) {
         if (error.name === "AbortError") {
-          throw new Error("Request timeout - model inference took too long")
+          throw new TimeoutError("The model took too long to respond. Please try again.")
+        }
+        if (error instanceof TimeoutError || error instanceof ServerError || error instanceof ValidationError) {
+          throw error
+        }
+        if (
+          error.message.includes("fetch") ||
+          error.message.includes("network") ||
+          error.message.includes("Failed to fetch")
+        ) {
+          throw new NetworkError("Please check your internet connection.")
         }
         throw error
       }
-      throw new Error("Unknown error occurred during prediction")
+      throw new NetworkError("An unknown network error occurred")
     }
   }
 

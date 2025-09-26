@@ -6,9 +6,21 @@ import { Button } from "@/components/ui/button"
 import { Progress } from "@/components/ui/progress"
 import { Badge } from "@/components/ui/badge"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-import { Upload, FileImage, Brain, Activity, Clock, CheckCircle, AlertTriangle, Loader2 } from "lucide-react"
+import {
+  Upload,
+  FileImage,
+  Brain,
+  Activity,
+  Clock,
+  CheckCircle,
+  AlertTriangle,
+  Loader2,
+  Server,
+  Wifi,
+  File,
+} from "lucide-react"
 import { useDropzone } from "react-dropzone"
-import { modelClient } from "@/lib/model-client"
+import { modelClient, TimeoutError, ServerError, ValidationError, NetworkError } from "@/lib/model-client"
 
 // Mock prediction data structure from PRD
 const mockPredictionResult = {
@@ -66,6 +78,17 @@ export function UploadDashboard() {
   const onDrop = useCallback((acceptedFiles: File[]) => {
     const file = acceptedFiles[0]
     if (file) {
+      const maxSizeInBytes = 10 * 1024 * 1024 // 10MB
+      if (file.size > maxSizeInBytes) {
+        setUploadState((prev) => ({
+          ...prev,
+          error: "File Too Large: Please upload an image smaller than 10MB.",
+          file: null,
+          preview: null,
+        }))
+        return
+      }
+
       const preview = URL.createObjectURL(file)
       setUploadState((prev) => ({
         ...prev,
@@ -115,7 +138,21 @@ export function UploadDashboard() {
       }))
     } catch (error) {
       clearInterval(progressInterval)
-      const errorMessage = error instanceof Error ? error.message : "An unexpected error occurred"
+
+      let errorMessage = "An unexpected error occurred"
+
+      if (error instanceof TimeoutError) {
+        errorMessage = "Prediction Timed Out: The model took too long to respond. Please try again."
+      } else if (error instanceof ServerError) {
+        errorMessage = "Server Error: An unexpected error occurred on the backend. The team has been notified."
+      } else if (error instanceof ValidationError) {
+        errorMessage = "Validation Error: The uploaded file format is not supported or corrupted."
+      } else if (error instanceof NetworkError) {
+        errorMessage = "Network Error: Please check your internet connection."
+      } else if (error instanceof Error) {
+        errorMessage = error.message
+      }
+
       setUploadState((prev) => ({
         ...prev,
         isProcessing: false,
@@ -123,6 +160,19 @@ export function UploadDashboard() {
         error: errorMessage,
       }))
     }
+  }
+
+  const getErrorIcon = (errorMessage: string) => {
+    if (errorMessage.includes("Timed Out")) {
+      return <Clock className="h-5 w-5" />
+    } else if (errorMessage.includes("Server Error")) {
+      return <Server className="h-5 w-5" />
+    } else if (errorMessage.includes("Network Error")) {
+      return <Wifi className="h-5 w-5" />
+    } else if (errorMessage.includes("File Too Large") || errorMessage.includes("Validation Error")) {
+      return <File className="h-5 w-5" />
+    }
+    return <AlertTriangle className="h-5 w-5" />
   }
 
   const resetUpload = () => {
@@ -207,7 +257,7 @@ export function UploadDashboard() {
 
                 {uploadState.error && (
                   <Alert variant="destructive" className="border-destructive/50 bg-destructive/10">
-                    <AlertTriangle className="h-5 w-5" />
+                    {getErrorIcon(uploadState.error)}
                     <AlertDescription className="font-medium">{uploadState.error}</AlertDescription>
                   </Alert>
                 )}
