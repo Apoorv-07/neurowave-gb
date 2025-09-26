@@ -1,0 +1,14 @@
+{
+  "name": "neurowave-model-service",
+  "version": "1.0.0",
+  "description": "Python inference service for NeuroWave brain tumor classification",
+  "scripts": {
+    "start": "python start_model_service.py",
+    "check": "python start_model_service.py --check-only",
+    "install-deps": "pip install -r requirements.txt",
+    "test-service": "python -c \"import requests; print('Service test:', requests.get('http://localhost:8001/health').json())\""
+  },
+  "keywords": ["machine-learning", "brain-tumor", "classification", "pytorch"],
+  "author": "NeuroWave Team",
+  "license": "MIT"
+}
