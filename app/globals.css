@@ -4,75 +4,75 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Updated theme for medical AI platform with blue/purple gradient aesthetic */
-  --background: oklch(0.05 0.02 264);
+  /* Updated theme for futuristic dark aesthetic with deep indigo/black and electric blue/purple accents */
+  --background: oklch(0.03 0.01 264);
   --foreground: oklch(0.98 0.01 264);
-  --card: oklch(0.08 0.02 264);
+  --card: oklch(0.06 0.02 264);
   --card-foreground: oklch(0.95 0.01 264);
-  --popover: oklch(0.08 0.02 264);
+  --popover: oklch(0.06 0.02 264);
   --popover-foreground: oklch(0.95 0.01 264);
-  --primary: oklch(0.65 0.25 264);
+  --primary: oklch(0.7 0.3 264);
   --primary-foreground: oklch(0.98 0.01 264);
-  --secondary: oklch(0.15 0.03 264);
+  --secondary: oklch(0.12 0.03 264);
   --secondary-foreground: oklch(0.95 0.01 264);
-  --muted: oklch(0.12 0.02 264);
-  --muted-foreground: oklch(0.65 0.02 264);
-  --accent: oklch(0.55 0.22 180);
+  --muted: oklch(0.1 0.02 264);
+  --muted-foreground: oklch(0.6 0.02 264);
+  --accent: oklch(0.65 0.25 300);
   --accent-foreground: oklch(0.98 0.01 264);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.98 0.01 264);
-  --border: oklch(0.18 0.03 264);
-  --input: oklch(0.15 0.03 264);
-  --ring: oklch(0.65 0.25 264);
-  --chart-1: oklch(0.65 0.25 264);
-  --chart-2: oklch(0.55 0.22 180);
-  --chart-3: oklch(0.75 0.18 300);
-  --chart-4: oklch(0.6 0.2 120);
+  --border: oklch(0.15 0.03 264);
+  --input: oklch(0.12 0.03 264);
+  --ring: oklch(0.7 0.3 264);
+  --chart-1: oklch(0.7 0.3 264);
+  --chart-2: oklch(0.65 0.25 300);
+  --chart-3: oklch(0.6 0.2 180);
+  --chart-4: oklch(0.55 0.2 120);
   --chart-5: oklch(0.7 0.15 60);
   --radius: 0.75rem;
-  --sidebar: oklch(0.08 0.02 264);
+  --sidebar: oklch(0.06 0.02 264);
   --sidebar-foreground: oklch(0.95 0.01 264);
-  --sidebar-primary: oklch(0.65 0.25 264);
+  --sidebar-primary: oklch(0.7 0.3 264);
   --sidebar-primary-foreground: oklch(0.98 0.01 264);
-  --sidebar-accent: oklch(0.15 0.03 264);
+  --sidebar-accent: oklch(0.12 0.03 264);
   --sidebar-accent-foreground: oklch(0.95 0.01 264);
-  --sidebar-border: oklch(0.18 0.03 264);
-  --sidebar-ring: oklch(0.65 0.25 264);
+  --sidebar-border: oklch(0.15 0.03 264);
+  --sidebar-ring: oklch(0.7 0.3 264);
 }
 
 .dark {
-  --background: oklch(0.05 0.02 264);
+  --background: oklch(0.03 0.01 264);
   --foreground: oklch(0.98 0.01 264);
-  --card: oklch(0.08 0.02 264);
+  --card: oklch(0.06 0.02 264);
   --card-foreground: oklch(0.95 0.01 264);
-  --popover: oklch(0.08 0.02 264);
+  --popover: oklch(0.06 0.02 264);
   --popover-foreground: oklch(0.95 0.01 264);
-  --primary: oklch(0.65 0.25 264);
+  --primary: oklch(0.7 0.3 264);
   --primary-foreground: oklch(0.98 0.01 264);
-  --secondary: oklch(0.15 0.03 264);
+  --secondary: oklch(0.12 0.03 264);
   --secondary-foreground: oklch(0.95 0.01 264);
-  --muted: oklch(0.12 0.02 264);
-  --muted-foreground: oklch(0.65 0.02 264);
-  --accent: oklch(0.55 0.22 180);
+  --muted: oklch(0.1 0.02 264);
+  --muted-foreground: oklch(0.6 0.02 264);
+  --accent: oklch(0.65 0.25 300);
   --accent-foreground: oklch(0.98 0.01 264);
   --destructive: oklch(0.396 0.141 25.723);
   --destructive-foreground: oklch(0.98 0.01 264);
-  --border: oklch(0.18 0.03 264);
-  --input: oklch(0.15 0.03 264);
-  --ring: oklch(0.65 0.25 264);
-  --chart-1: oklch(0.65 0.25 264);
-  --chart-2: oklch(0.55 0.22 180);
-  --chart-3: oklch(0.75 0.18 300);
-  --chart-4: oklch(0.6 0.2 120);
+  --border: oklch(0.15 0.03 264);
+  --input: oklch(0.12 0.03 264);
+  --ring: oklch(0.7 0.3 264);
+  --chart-1: oklch(0.7 0.3 264);
+  --chart-2: oklch(0.65 0.25 300);
+  --chart-3: oklch(0.6 0.2 180);
+  --chart-4: oklch(0.55 0.2 120);
   --chart-5: oklch(0.7 0.15 60);
-  --sidebar: oklch(0.08 0.02 264);
+  --sidebar: oklch(0.06 0.02 264);
   --sidebar-foreground: oklch(0.95 0.01 264);
-  --sidebar-primary: oklch(0.65 0.25 264);
+  --sidebar-primary: oklch(0.7 0.3 264);
   --sidebar-primary-foreground: oklch(0.98 0.01 264);
-  --sidebar-accent: oklch(0.15 0.03 264);
+  --sidebar-accent: oklch(0.12 0.03 264);
   --sidebar-accent-foreground: oklch(0.95 0.01 264);
-  --sidebar-border: oklch(0.18 0.03 264);
-  --sidebar-ring: oklch(0.65 0.25 264);
+  --sidebar-border: oklch(0.15 0.03 264);
+  --sidebar-ring: oklch(0.7 0.3 264);
 }
 
 @theme inline {
@@ -125,23 +125,121 @@
   }
 }
 
-/* Added custom gradient backgrounds for medical AI aesthetic */
+/* Enhanced futuristic design system with glassmorphism and animations */
 .hero-gradient {
-  background: radial-gradient(ellipse at center, oklch(0.15 0.08 264) 0%, oklch(0.05 0.02 264) 70%);
+  background: radial-gradient(ellipse at center, oklch(0.08 0.05 264) 0%, oklch(0.03 0.01 264) 70%);
+  position: relative;
 }
 
-.card-gradient {
-  background: linear-gradient(135deg, oklch(0.08 0.02 264) 0%, oklch(0.12 0.03 264) 100%);
+.hero-gradient::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 80%, oklch(0.7 0.3 264 / 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, oklch(0.65 0.25 300 / 0.1) 0%, transparent 50%);
+  animation: pulse 4s ease-in-out infinite alternate;
 }
 
-.accent-glow {
-  box-shadow: 0 0 20px oklch(0.65 0.25 264 / 0.3);
+@keyframes pulse {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
-/* Added glassmorphism effect for navigation */
 .glassmorphism {
-  background: rgba(8, 8, 16, 0.8);
+  background: rgba(6, 6, 16, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-glassmorphism {
+  background: rgba(12, 12, 24, 0.6);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glow-primary {
+  box-shadow: 0 0 20px oklch(0.7 0.3 264 / 0.3), 0 0 40px oklch(0.7 0.3 264 / 0.1);
+}
+
+.glow-accent {
+  box-shadow: 0 0 20px oklch(0.65 0.25 300 / 0.3), 0 0 40px oklch(0.65 0.25 300 / 0.1);
+}
+
+.neural-network {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.1;
+  background-image: radial-gradient(circle at 25% 25%, oklch(0.7 0.3 264) 1px, transparent 1px),
+    radial-gradient(circle at 75% 75%, oklch(0.65 0.25 300) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Scroll-triggered animations */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.fade-in-up.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.6s ease-out;
+}
+
+.fade-in-left.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all 0.6s ease-out;
+}
+
+.fade-in-right.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Enhanced button hover effects */
+.btn-glow:hover {
+  box-shadow: 0 0 25px oklch(0.7 0.3 264 / 0.4), 0 0 50px oklch(0.7 0.3 264 / 0.2);
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+.btn-glow-accent:hover {
+  box-shadow: 0 0 25px oklch(0.65 0.25 300 / 0.4), 0 0 50px oklch(0.65 0.25 300 / 0.2);
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
 }

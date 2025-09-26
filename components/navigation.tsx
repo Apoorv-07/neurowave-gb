@@ -29,35 +29,33 @@ export function Navigation() {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled ? "bg-background/80 backdrop-blur-md border-b border-border/50" : "bg-transparent",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+        isScrolled ? "glassmorphism border-b border-border/30" : "bg-transparent",
       )}
     >
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div className="flex items-center gap-2">
-            <Brain className="w-8 h-8 text-primary" />
-            <span className="text-xl font-bold text-foreground">NeuroWave</span>
+        <div className="flex items-center justify-between h-20">
+          <div className="flex items-center gap-3">
+            <Brain className="w-10 h-10 text-primary glow-primary" />
+            <span className="text-2xl font-bold text-foreground">NeuroWave</span>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-10">
             <button
               onClick={() => scrollToSection("dashboard")}
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className="text-muted-foreground hover:text-primary transition-all duration-300 font-medium hover:glow-primary"
             >
               Dashboard
             </button>
             <button
               onClick={() => scrollToSection("performance")}
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className="text-muted-foreground hover:text-primary transition-all duration-300 font-medium hover:glow-primary"
             >
               Performance
             </button>
             <button
               onClick={() => scrollToSection("technical")}
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className="text-muted-foreground hover:text-primary transition-all duration-300 font-medium hover:glow-primary"
             >
               Technical
             </button>
@@ -70,29 +68,28 @@ export function Navigation() {
             className="md:hidden"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </Button>
         </div>
 
-        {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border/50 bg-background/95 backdrop-blur-md">
-            <div className="flex flex-col gap-4">
+          <div className="md:hidden py-6 border-t border-border/30 glassmorphism">
+            <div className="flex flex-col gap-6">
               <button
                 onClick={() => scrollToSection("dashboard")}
-                className="text-left text-muted-foreground hover:text-foreground transition-colors"
+                className="text-left text-muted-foreground hover:text-primary transition-all duration-300 font-medium"
               >
                 Dashboard
               </button>
               <button
                 onClick={() => scrollToSection("performance")}
-                className="text-left text-muted-foreground hover:text-foreground transition-colors"
+                className="text-left text-muted-foreground hover:text-primary transition-all duration-300 font-medium"
               >
                 Performance
               </button>
               <button
                 onClick={() => scrollToSection("technical")}
-                className="text-left text-muted-foreground hover:text-foreground transition-colors"
+                className="text-left text-muted-foreground hover:text-primary transition-all duration-300 font-medium"
               >
                 Technical
               </button>
