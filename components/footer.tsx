@@ -106,7 +106,7 @@ export function Footer() {
           <div className="fade-in-up mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 text-xs text-muted-foreground">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-              <span>Website created by Apoorv Singh</span>
+              <span>Website by Apoorv Singh</span>
             </div>
             <div className="hidden sm:block w-1 h-1 bg-muted-foreground/30 rounded-full"></div>
             <div className="flex items-center gap-2">
