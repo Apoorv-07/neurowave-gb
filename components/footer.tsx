@@ -111,6 +111,7 @@ export function Footer() {
               </p>
             </div>
           </div>
+          </div>
 
           <div className="fade-in-up mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 text-xs text-muted-foreground">
             <div className="flex items-center gap-2">
