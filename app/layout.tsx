@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "NeuroWave - AI-Powered Brain Tumor Detection",
   description:
     "Advanced machine learning platform for brain tumor classification from MRI scans. Precision. Analysis. Diagnosis.",
-  generator: "v0.app",
+  generator: "Apoorv",
 }
 
 export default function RootLayout({
