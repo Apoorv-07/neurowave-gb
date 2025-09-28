@@ -74,16 +74,6 @@ export function Footer() {
             <h3 className="text-lg font-bold text-foreground">Resources</h3>
             <div className="space-y-4">
               <a
-                href="https://github.com/neurowave-ai/platform"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-all duration-300 group"
-              >
-                <Github className="w-5 h-5 group-hover:glow-primary" />
-                <span>GitHub Repository</span>
-                <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-              </a>
-              <a
                 href="https://www.kaggle.com/datasets/masoudnickparvar/brain-tumor-mri-dataset"
                 className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-all duration-300 group"
               >
