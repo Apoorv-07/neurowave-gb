@@ -8,10 +8,10 @@ import { Cpu, Database, Settings, Layers, Code, Server, HardDrive, Zap } from "l
 
 // Mock technical data from PRD structure
 const datasetInfo = {
-  total_dataset_size: 15420,
-  training_set_size: 10794,
-  validation_set_size: 2313,
-  test_set_size: 2313,
+  total_dataset_size: 7022,
+  training_set_size: 5617,
+  validation_set_size: 561,
+  test_set_size: 1405,
   class_distribution: {
     Glioma: 3264,
     Meningioma: 4621,
