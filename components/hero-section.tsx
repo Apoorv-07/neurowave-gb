@@ -37,9 +37,6 @@ export function HeroSection() {
           <a href="#technical" className="text-muted-foreground hover:text-foreground transition-colors">
             Technical
           </a>
-          <Button variant="outline" size="sm">
-            Documentation
-          </Button>
         </div>
       </nav>
 
@@ -63,18 +60,6 @@ export function HeroSection() {
             Advanced machine learning platform for precise brain tumor classification from MRI scans. Empowering medical
             professionals with cutting-edge AI diagnostics.
           </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-            <Button size="lg" className="accent-glow">
-              Upload MRI Scan
-            </Button>
-            <Button variant="outline" size="lg">
-              View Demo
-            </Button>
-            <Button variant="ghost" size="lg">
-              Learn More
-            </Button>
-          </div>
 
           {/* Dynamic Statistics */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
