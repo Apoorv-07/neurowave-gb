@@ -84,25 +84,7 @@ export function Footer() {
                 <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
               </a>
               <a
-                href="#"
-                className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-all duration-300 group"
-              >
-                <Brain className="w-5 h-5 group-hover:glow-primary" />
-                <span>API Documentation</span>
-                <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-              </a>
-              <a
-                href="#"
-                className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-all duration-300 group"
-              >
-                <div className="w-5 h-5 rounded bg-accent/20 flex items-center justify-center">
-                  <span className="text-xs font-bold text-accent">R</span>
-                </div>
-                <span>Research Paper</span>
-                <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-              </a>
-              <a
-                href="#"
+                href="https://www.kaggle.com/datasets/masoudnickparvar/brain-tumor-mri-dataset"
                 className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-all duration-300 group"
               >
                 <div className="w-5 h-5 rounded bg-primary/20 flex items-center justify-center">
@@ -110,42 +92,6 @@ export function Footer() {
                 </div>
                 <span>Dataset Information</span>
                 <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-              </a>
-            </div>
-          </div>
-
-          <div className="fade-in-up space-y-6">
-            <h3 className="text-lg font-bold text-foreground">Legal & Compliance</h3>
-            <div className="space-y-4">
-              <a
-                href="#"
-                className="block text-muted-foreground hover:text-primary transition-all duration-300 hover:translate-x-1"
-              >
-                Privacy Policy
-              </a>
-              <a
-                href="#"
-                className="block text-muted-foreground hover:text-primary transition-all duration-300 hover:translate-x-1"
-              >
-                Terms of Service
-              </a>
-              <a
-                href="#"
-                className="block text-muted-foreground hover:text-primary transition-all duration-300 hover:translate-x-1"
-              >
-                Medical Disclaimer
-              </a>
-              <a
-                href="#"
-                className="block text-muted-foreground hover:text-primary transition-all duration-300 hover:translate-x-1"
-              >
-                HIPAA Compliance
-              </a>
-              <a
-                href="#"
-                className="block text-muted-foreground hover:text-primary transition-all duration-300 hover:translate-x-1"
-              >
-                FDA Guidelines
               </a>
             </div>
           </div>
@@ -169,19 +115,13 @@ export function Footer() {
           <div className="fade-in-up mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 text-xs text-muted-foreground">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-              <span>Model v3.0 Active</span>
+              <span>Website created by Apoorv Singh</span>
             </div>
             <div className="hidden sm:block w-1 h-1 bg-muted-foreground/30 rounded-full"></div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-              <span>API Status: Operational</span>
+              <span>DL Model by Tushar Goutam</span>
             </div>
-            <div className="hidden sm:block w-1 h-1 bg-muted-foreground/30 rounded-full"></div>
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-              <span>Last Updated: Dec 2024</span>
-            </div>
-          </div>
         </div>
       </div>
     </footer>
